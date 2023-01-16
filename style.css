@@ -98,6 +98,7 @@ input {
   font-size: 16px;
   padding: 6px;
   box-sizing: border-box;
+  outline: none;
 }
 
 .max-widht {
