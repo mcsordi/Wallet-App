@@ -1,0 +1,3 @@
+onclicknewpage = function () {
+  window.open();
+};
