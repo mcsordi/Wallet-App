@@ -1,29 +1,28 @@
-const validadeUser = async (email) => {
+const validationEmail = async (email) => {
   try {
     const result = await fetch(
       `https://mp-wallet-app-api.herokuapp.com/users?email=${email}`
     );
-    const user = await result.json();
+    const user = await result.json(email);
     return user;
   } catch (error) {
-    return error;
+    return { error };
   }
 };
 
-const onclickLogin = async () => {
+onclickLogin = async () => {
   const email = document.getElementById("input-email").value;
   if (email.length < 5 || !email.includes("@") || !email.includes(".")) {
-    alert("Email Invalido");
+    alert("e-mail invalido");
     return;
   }
-  const result = await validadeUser(email);
+  const result = await validationEmail(email);
   if (result.error) {
-    alert("Falha ao validar e-mail.");
+    alert("Falha ao validar e-mail");
     return;
   }
-
-  localStorage.setItem("@WalletApp:email", result.email);
-  localStorage.setItem("@WalletApp:name", result.name);
-  localStorage.setItem("@WalletApp:id", result.id);
-  window.open("./src/image/register/index.html", "_self");
+  localStorage.setItem("@WalletApp:Email", result.email);
+  localStorage.setItem("@WalletApp:Name", result.name);
+  localStorage.setItem("@WalletApp:Id", result.id);
+  window.open("./register/index.html", "_self");
 };

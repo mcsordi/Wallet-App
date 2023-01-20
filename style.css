@@ -166,6 +166,10 @@ input {
   background-color: #f4f4f9;
   border-radius: 24px;
   border-width: 0px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #5936cd;
+  border-radius: 24px;
 }
 
 .image-logo {
@@ -173,11 +177,11 @@ input {
   height: 30px;
 }
 
-.section-hero-purple {
+.section-hero-colorful {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #5936cd;
+  background-color: #06bee1;
 }

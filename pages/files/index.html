@@ -6,7 +6,7 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <div class="section-hero-purple">
+    <div class="section-hero-colorful">
       <div class="div-box-email">
         <div class="div-email-informations">
           <img
@@ -19,23 +19,29 @@
             Insira seu nome e seu e-mail para ter acesso ao Wallet app e
             gerenciar suas finanças
           </p>
-          <label class="mt-small" for="input-email"> Nome </label>
-          <input
-            class="mt-smaller"
-            id="input-email"
-            placeholder="digite seu nome"
-            name="input-email"
-            type="email"
-          />
-          <label class="mt-small" for="input-email"> E-mail </label>
-          <input
-            class="mt-smaller"
-            id="input-email"
-            placeholder="email@exemplo.com"
-            name="input-email"
-            type="email"
-          />
-          <button class="mt-forty">Cadastrar</button>
+          <form id="register-submit" class="mt-small">
+            <label for="input-email"> Nome </label>
+
+            <input
+              class="mt-smaller"
+              id="input-name"
+              placeholder="digite seu nome"
+              name="input-name"
+              type="text"
+              required
+            />
+            <label class="mt-small" for="input-email"> E-mail </label>
+            <input
+              class="mt-smaller"
+              id="input-email"
+              placeholder="email@exemplo.com"
+              name="input-email"
+              type="email"
+              required
+            />
+            <button type="submit" class="mt-forty">Cadastrar</button>
+          </form>
+
           <a href="../../index.html" class="mt-forty"
             >possui uma conta ? Faça o seu login</a
           >
