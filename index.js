@@ -24,5 +24,5 @@ onclickLogin = async () => {
   localStorage.setItem("@WalletApp:Email", result.email);
   localStorage.setItem("@WalletApp:Name", result.name);
   localStorage.setItem("@WalletApp:Id", result.id);
-  window.open("./register/index.html", "_self");
+  window.open("./home/index.html", "_self");
 };
