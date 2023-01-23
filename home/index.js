@@ -1,3 +1,53 @@
+const tableItems = (data) => {
+  const table = document.getElementById("items-table");
+
+  data.map((item) => {
+    const tableTr = document.createElement("tr");
+
+    const itemTable = document.createElement("td");
+    const title = document.createTextNode(item.title);
+    itemTable.appendChild(title);
+    tableTr.appendChild(itemTable);
+
+    const itemCategory = document.createElement("td");
+    const Category = document.createTextNode(item.name);
+    itemCategory.appendChild(Category);
+    tableTr.appendChild(itemCategory);
+
+    const itemData = document.createElement("td");
+    const date = document.createTextNode(
+      new Date(item.date).toLocaleDateString()
+    );
+    itemData.appendChild(date);
+    tableTr.appendChild(itemData);
+
+    const itemValue = document.createElement("td");
+
+    const value = document.createTextNode(
+      new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      }).format(item.value)
+    );
+    if (item.value < 0) {
+      itemValue.style.color = "#c50000";
+    } else if (item.value > 0) {
+      itemValue.style.color = "#239d60";
+    }
+    itemValue.className = "center";
+    itemValue.appendChild(value);
+    tableTr.appendChild(itemValue);
+
+    const itemexcludes = document.createElement("td");
+    const exclude = document.createTextNode("Excluir");
+    itemexcludes.className = "right";
+    itemexcludes.appendChild(exclude);
+    tableTr.appendChild(itemexcludes);
+
+    table.appendChild(tableTr);
+  });
+};
+
 const renderFinancesInfo = (data) => {
   const totalItems = data.length;
   const receive = data
@@ -10,6 +60,7 @@ const renderFinancesInfo = (data) => {
 
   const valueCard1 = document.getElementById("value-card1");
   const textCard1 = document.createElement("h1");
+  textCard1.style.color = "#5936cd";
   const total = document.createTextNode(totalItems);
   textCard1.classList = "mt-smaller";
   textCard1.appendChild(total);
@@ -23,6 +74,11 @@ const renderFinancesInfo = (data) => {
       currency: "BRL",
     }).format(receive)
   );
+  if (receive > 0) {
+    textCard2.style.color = "#239d60";
+  } else if (receive === 0) {
+    textCard2.style.color = "#010400";
+  }
   textCard2.classList = "mt-smaller";
   textCard2.appendChild(totalReceive);
   valueCard2.append(textCard2);
@@ -35,6 +91,11 @@ const renderFinancesInfo = (data) => {
       currency: "BRL",
     }).format(expenses)
   );
+  if (expenses < 0) {
+    textCard3.style.color = "#c50000";
+  } else if (expenses === 0) {
+    textCard3.style.color = "#010400";
+  }
   textCard3.classList = "mt-smaller";
   textCard3.appendChild(totalExpenses);
   valueCard3.append(textCard3);
@@ -65,7 +126,9 @@ const onLoadFinances = async () => {
     }
   );
   const data = await result.json();
+  console.log({ data });
   renderFinancesInfo(data);
+  tableItems(data);
   return data;
 };
 
@@ -83,6 +146,7 @@ const onLoadUserInfo = () => {
 
   const link = document.createElement("a");
   const exit = document.createTextNode("sair");
+
   link.appendChild(exit);
   navbarUserInfo.appendChild(link);
 
@@ -93,6 +157,7 @@ const onLoadUserInfo = () => {
   type.appendChild(firstletter);
   navbarAvatar.appendChild(type);
 };
+
 window.onload = () => {
   onLoadUserInfo();
   onLoadFinances();
