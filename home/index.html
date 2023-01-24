@@ -36,7 +36,7 @@
         <div class="list-container-items">
           <div class="text-container">
             <h2>Últimos lançamentos</h2>
-            <button class="small">Adicionar</button>
+            <button onclick="pageOpen()" class="small">Adicionar</button>
           </div>
           <table id="items-table" class="table-container">
             <tr class="title-table">
@@ -48,6 +48,48 @@
             </tr>
           </table>
         </div>
+      </div>
+    </div>
+    <div id="modal" class="add-Items-Page">
+      <div class="add-items">
+        <div class="position-items">
+          <h2>Adicionar Lançamento</h2>
+          <button onclick="pageClosed()" class="small">Fechar</button>
+        </div>
+        <form id="inset-items" class="mt-large">
+          <label for="input-email"> Titulo </label>
+          <input
+            class="mt-doble-smaller"
+            id="input-title"
+            placeholder="Ex: conta de água"
+            name="title"
+            type="text"
+            required
+          />
+          <label class="mt-large" for="input-email"> Valor </label>
+          <input
+            class="mt-doble-smaller"
+            id="input-value"
+            placeholder="Digite um valor negativo para as despesas"
+            name="value"
+            step="any"
+            type="number"
+            required
+          />
+          <label for="input-email"> Data </label>
+
+          <input
+            class="mt-doble-smaller"
+            id="input-date"
+            name="input-date"
+            type="date"
+            required
+          />
+          <label class="mt-smaller" for="input-email"> Categoria </label>
+          <select id="item-category"></select>
+
+          <button class="mt-forty">Adicionar</button>
+        </form>
       </div>
     </div>
   </body>

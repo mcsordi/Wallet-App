@@ -1,3 +1,22 @@
+const onLoadCategories = async () => {
+  const selectId = document.getElementById("item-category");
+  const result = await fetch(
+    "https://mp-wallet-app-api.herokuapp.com/categories"
+  );
+  const resultJson = await result.json();
+  try {
+    resultJson.map((category) => {
+      const option = document.createElement("option");
+      const name = document.createTextNode(category.name);
+      name.id = `category_${category.id}`;
+      name.value = category.id;
+      option.appendChild(name);
+      selectId.append(option);
+    });
+  } catch (error) {
+    alert("Erro ao exibir categorias");
+  }
+};
 const tableItems = (data) => {
   const table = document.getElementById("items-table");
 
@@ -126,7 +145,6 @@ const onLoadFinances = async () => {
     }
   );
   const data = await result.json();
-  console.log({ data });
   renderFinancesInfo(data);
   tableItems(data);
   return data;
@@ -156,9 +174,20 @@ const onLoadUserInfo = () => {
   );
   type.appendChild(firstletter);
   navbarAvatar.appendChild(type);
+
+  pageClosed = () => {
+    const element = document.getElementById("modal");
+    element.style.display = "none";
+  };
+  pageOpen = () => {
+    const element = document.getElementById("modal");
+    element.style.display = "flex";
+  };
 };
 
 window.onload = () => {
   onLoadUserInfo();
   onLoadFinances();
+  pageClosed();
+  onLoadCategories();
 };
