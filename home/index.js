@@ -1,17 +1,17 @@
 const onLoadCategories = async () => {
-  const selectId = document.getElementById("item-category");
-  const result = await fetch(
-    "https://mp-wallet-app-api.herokuapp.com/categories"
-  );
-  const resultJson = await result.json();
+  const local = document.getElementById("item-category");
   try {
+    const result = await fetch(
+      "https://mp-wallet-app-api.herokuapp.com/categories"
+    );
+    const resultJson = await result.json();
     resultJson.map((category) => {
       const option = document.createElement("option");
-      const name = document.createTextNode(category.name);
-      name.id = `category_${category.id}`;
-      name.value = category.id;
-      option.appendChild(name);
-      selectId.append(option);
+      const text = document.createTextNode(category.name);
+      option.id = `category_${category.id}`;
+      option.value = category.id;
+      option.appendChild(text);
+      local.append(option);
     });
   } catch (error) {
     alert("Erro ao exibir categorias");
@@ -87,6 +87,7 @@ const renderFinancesInfo = (data) => {
 
   const valueCard2 = document.getElementById("value-card2");
   const textCard2 = document.createElement("h1");
+
   const totalReceive = document.createTextNode(
     new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -103,6 +104,7 @@ const renderFinancesInfo = (data) => {
   valueCard2.append(textCard2);
 
   const valueCard3 = document.getElementById("value-card3");
+
   const textCard3 = document.createElement("h1");
   const totalExpenses = document.createTextNode(
     new Intl.NumberFormat("pt-BR", {
@@ -174,20 +176,72 @@ const onLoadUserInfo = () => {
   );
   type.appendChild(firstletter);
   navbarAvatar.appendChild(type);
-
   pageClosed = () => {
     const element = document.getElementById("modal");
     element.style.display = "none";
   };
+
   pageOpen = () => {
     const element = document.getElementById("modal");
     element.style.display = "flex";
   };
-};
 
-window.onload = () => {
-  onLoadUserInfo();
-  onLoadFinances();
-  pageClosed();
-  onLoadCategories();
+  const onFinancesApi = async (data) => {
+    try {
+      const email = localStorage.getItem("@WalletApp:Email");
+      const response = await fetch(
+        "https://mp-wallet-app-api.herokuapp.com/finances",
+        {
+          method: "POST",
+          mode: "cors",
+          cache: "no-cache",
+          credentials: "same-origin",
+          headers: {
+            "Content-Type": "application/json",
+            email: email,
+          },
+          redirect: "follow",
+          referrerPolicy: "no-referrer",
+          body: JSON.stringify(data),
+        }
+      );
+      const user = await response.json();
+      return user;
+    } catch (error) {
+      return { error };
+    }
+  };
+
+  onFinanceRelese = async (target) => {
+    try {
+      const title = target[0].value;
+      const value = Number(target[1].value);
+      const date = target[2].value;
+      const category = Number(target[3].value);
+      const result = await onFinancesApi({
+        title,
+        value,
+        date,
+        category_id: category,
+      });
+      if (result.error) {
+        return error;
+      }
+    } catch (error) {
+      alert("Erro ao cadastrar dado financeiro");
+      return;
+    }
+    pageClosed();
+  };
+
+  window.onload = () => {
+    onLoadCategories();
+    onLoadUserInfo();
+    onLoadFinances();
+  };
+  const form = document.getElementById("cadaster-items");
+  form.onsubmit = (event) => {
+    event.preventDefault();
+    onFinanceRelese(event.target);
+  };
 };
