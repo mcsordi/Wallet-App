@@ -1,3 +1,13 @@
+/*#CCCCFF
+#E0FFFF */
+
+body {
+  overflow-x: hidden;
+}
+
+th {
+  padding-bottom: 10px;
+}
 .hero-content-container {
   display: flex;
   flex-direction: column;
@@ -5,7 +15,7 @@
   justify-content: flex-start;
   width: 100vw;
   height: 100vh;
-  background-color: #f4f4f9;
+  background-color: #ccccff;
 }
 .navbar {
   display: flex;
@@ -86,7 +96,7 @@
   min-width: 100%;
   padding: 0px 112px;
   box-sizing: border-box;
-  background-color: #f4f4f9;
+  background-color: #ccccff;
 }
 
 .list-container-items {

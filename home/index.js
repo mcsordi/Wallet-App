@@ -1,3 +1,17 @@
+const onDeleteItems = async (id) => {
+  try {
+    const email = localStorage.getItem("@WalletApp:Email");
+    await fetch(`https://mp-wallet-app-api.herokuapp.com/finances/${id}`, {
+      method: "DELETE",
+      headers: {
+        email: email,
+      },
+    });
+    onLoadFinances();
+  } catch (error) {
+    alert("Erro ao deletar item");
+  }
+};
 const onLoadCategories = async () => {
   const selectId = document.getElementById("item-category");
   const result = await fetch(
@@ -85,12 +99,13 @@ const tableItems = (data) => {
     itemValue.appendChild(value);
     tableTr.appendChild(itemValue);
 
-    const itemexcludes = document.createElement("td");
-    const exclude = document.createTextNode("Excluir");
-    itemexcludes.className = "right";
-    itemexcludes.appendChild(exclude);
-    tableTr.appendChild(itemexcludes);
-
+    const itemExcludes = document.createElement("td");
+    const excludes = document.createTextNode("Deletar");
+    itemExcludes.onclick = () => onDeleteItems(item.id);
+    itemExcludes.style.cursor = "pointer";
+    itemExcludes.className = "right";
+    itemExcludes.appendChild(excludes);
+    tableTr.appendChild(itemExcludes);
     table.appendChild(tableTr);
   });
 };
@@ -218,6 +233,9 @@ const onLoadUserInfo = () => {
 
   const link = document.createElement("a");
   const exit = document.createTextNode("sair");
+  link.onclick = () => {
+    window.open("../index.html", "_self");
+  };
 
   link.appendChild(exit);
   navbarUserInfo.appendChild(link);
