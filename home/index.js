@@ -209,8 +209,8 @@ const renderFinancesInfo = (data) => {
   valueCard4.append(textCard4);
 };
 const onLoadFinances = async () => {
+  const date = document.getElementById("navbar-date").value;
   const email = localStorage.getItem("@WalletApp:Email");
-  const date = "2022-12-15";
   const result = await fetch(
     `https://mp-wallet-app-api.herokuapp.com/finances?date=${date}`,
     {
@@ -221,6 +221,7 @@ const onLoadFinances = async () => {
     }
   );
   const data = await result.json();
+
   renderFinancesInfo(data);
   tableItems(data);
   return data;
@@ -305,14 +306,24 @@ const onFinanceRelease = async (target) => {
       alert("Erro ao cadastrar novo dado financeiro");
       return;
     }
+
     onLoadFinances();
     pageClosed();
   } catch (error) {
     alert("Erro ao cadastrar novo dado financeiro");
   }
 };
+const dinamicDate = () => {
+  const inputElement = document.getElementById("navbar-date");
+  const newDate = new Date().toISOString().split("T")[0];
+  inputElement.value = newDate;
+  inputElement.addEventListener("change", () => {
+    onLoadFinances();
+  });
+};
 
 window.onload = () => {
+  dinamicDate();
   onLoadUserInfo();
   onLoadFinances();
   onLoadCategories();
