@@ -101,6 +101,13 @@ input {
   outline: none;
   margin-bottom: 16px;
 }
+
+input.white {
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
 select {
   background-color: #f4f4f9;
   width: 100%;

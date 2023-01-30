@@ -1,3 +1,7 @@
+const clickExit = () => {
+  localStorage.clear;
+  window.open("../index.html", "_self");
+};
 const onDeleteItems = async (id) => {
   try {
     const email = localStorage.getItem("@WalletApp:Email");
@@ -99,13 +103,16 @@ const tableItems = (data) => {
     itemValue.appendChild(value);
     tableTr.appendChild(itemValue);
 
-    const itemExcludes = document.createElement("td");
-    const excludes = document.createTextNode("Deletar");
-    itemExcludes.onclick = () => onDeleteItems(item.id);
+    const deleteTd = document.createElement("td");
+    deleteTd.onclick = () => onDeleteItems(item.id);
+    deleteTd.className = "right";
+
+    const itemExcludes = document.createElement("img");
+    itemExcludes.src = "../src/image/trash-icon.png";
     itemExcludes.style.cursor = "pointer";
-    itemExcludes.className = "right";
-    itemExcludes.appendChild(excludes);
-    tableTr.appendChild(itemExcludes);
+    itemExcludes.className = "image-trash";
+    deleteTd.appendChild(itemExcludes);
+    tableTr.appendChild(deleteTd);
     table.appendChild(tableTr);
   });
 };
@@ -234,7 +241,7 @@ const onLoadUserInfo = () => {
   const link = document.createElement("a");
   const exit = document.createTextNode("sair");
   link.onclick = () => {
-    window.open("../index.html", "_self");
+    clickExit();
   };
 
   link.appendChild(exit);
@@ -256,7 +263,6 @@ const pageOpen = () => {
   const element = document.getElementById("modal");
   element.style.display = "flex";
 };
-
 const onFinanceApi = async (data) => {
   try {
     const email = localStorage.getItem("@WalletApp:Email");

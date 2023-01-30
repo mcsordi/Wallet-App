@@ -179,3 +179,24 @@ td.right {
   justify-content: space-between;
   width: 100%;
 }
+
+.image-trash {
+  width: 16px;
+  height: 18px;
+}
+
+.navbar-date-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 240px;
+}
+
+.navbar-date {
+  display: flex;
+  flex-direction: row;
+  height: 48px;
+  width: 156px;
+  font-size: 16px;
+}
