@@ -4,6 +4,7 @@
     <title>Wallet App - Home</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="mobile.css" />
     <script src="index.js"></script>
   </head>
   <body>
@@ -28,6 +29,9 @@
         <div id="value-card2" class="cards-container-values"></div>
         <div id="value-card3" class="cards-container-values"></div>
         <div id="value-card4" class="cards-container-values"></div>
+      </div>
+      <div class="graphic-content-container">
+        <div class="graphic-container-items graphic"></div>
       </div>
       <div class="list-container">
         <div class="list-container-items">
@@ -57,7 +61,7 @@
             type="text"
             required
           />
-          <label class="mt-large" for="input-email"> Valor </label>
+          <label for="input-email"> Valor </label>
           <input
             class="mt-doble-smaller"
             id="input-value"
@@ -76,9 +80,8 @@
             type="date"
             required
           />
-          <label class="mt-smaller" for="input-email"> Categoria </label>
+          <label for="input-email"> Categoria </label>
           <select id="item-category"></select>
-
           <button id="buttonAdd" class="mt-forty">Adicionar</button>
         </form>
       </div>

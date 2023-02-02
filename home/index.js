@@ -126,7 +126,6 @@ const renderFinancesInfo = (data) => {
     .filter((item) => Number(item.value) < 0)
     .reduce((acc, item) => acc + Number(item.value), 0);
   const totalValue = receive + expenses;
-
   const valueCard1 = document.getElementById("value-card1");
   valueCard1.innerHTML = "";
   const totalSubtext = document.createTextNode("Total de lançamentos");
@@ -208,6 +207,7 @@ const renderFinancesInfo = (data) => {
   textCard4.appendChild(value);
   valueCard4.append(textCard4);
 };
+
 const onLoadFinances = async () => {
   const date = document.getElementById("navbar-date").value;
   const email = localStorage.getItem("@WalletApp:Email");
@@ -220,8 +220,8 @@ const onLoadFinances = async () => {
       },
     }
   );
-  const data = await result.json();
 
+  const data = await result.json();
   renderFinancesInfo(data);
   tableItems(data);
   return data;
@@ -244,7 +244,6 @@ const onLoadUserInfo = () => {
   link.onclick = () => {
     clickExit();
   };
-
   link.appendChild(exit);
   navbarUserInfo.appendChild(link);
 
@@ -289,6 +288,7 @@ const onFinanceApi = async (data) => {
     return { error };
   }
 };
+
 const onFinanceRelease = async (target) => {
   try {
     const title = target[0].value;
@@ -306,7 +306,6 @@ const onFinanceRelease = async (target) => {
       alert("Erro ao cadastrar novo dado financeiro");
       return;
     }
-
     onLoadFinances();
     pageClosed();
   } catch (error) {
@@ -328,6 +327,7 @@ window.onload = () => {
   onLoadFinances();
   onLoadCategories();
   pageClosed();
+
   const form = document.getElementById("category-items");
   form.onsubmit = (event) => {
     event.preventDefault();

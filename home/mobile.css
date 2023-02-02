@@ -1,0 +1,136 @@
+@media only screen and (max-device-width: 450px) {
+  p {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 35px;
+  }
+  a {
+    font-size: 22px;
+  }
+
+  h1 {
+    font-size: 68px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  .logo-image {
+    width: 100px;
+    height: 35px;
+  }
+  .image-logo {
+    width: 126px;
+    height: 54px;
+  }
+  .flexbox-container-values {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-content: flex-start;
+    height: 35%;
+    row-gap: 30px;
+    column-gap: 30px;
+    padding-top: 0px;
+    margin-top: 20%;
+  }
+  .cards-container-values {
+    width: 424px;
+    height: 266px;
+    box-sizing: border-box;
+  }
+  .navbar {
+    padding: 24px 56px;
+  }
+  .list-container {
+    padding: 0px 56px;
+  }
+
+  .list-container-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 754px;
+    border-radius: 24px;
+    background-color: #ffffff;
+    padding: 24px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #06bee1;
+  }
+  .add-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    width: 70%;
+    background-color: #f4f4f9;
+  }
+  .div-box-email {
+    width: 600px;
+    height: 700px;
+    min-height: 440px;
+  }
+  .div-email-informations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+    text-align: left;
+    padding: 24px;
+  }
+  .navbar-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    height: 100%;
+  }
+  input {
+    height: 56px;
+    font-size: 24px;
+  }
+  select {
+    height: 56px;
+    font-size: 24px;
+  }
+  label {
+    font-size: 20px;
+  }
+  button {
+    height: 66px;
+    width: 100%;
+    font-size: 24px;
+  }
+  button.small {
+    height: 48px;
+    width: 124px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    font-size: 20px;
+    color: #010400;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  th {
+    font-size: 24px;
+  }
+  input.white {
+    font-size: 20px;
+  }
+  td {
+    font-size: 22px;
+  }
+  .image-trash {
+    width: 22px;
+    height: 24px;
+  }
+}

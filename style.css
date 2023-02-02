@@ -9,21 +9,21 @@ body {
 
 h1 {
   font-family: "Noto Sans", sans-serif;
-  font-size: 40px;
+  font-size: 52px;
   font-weight: bolder;
   margin: 0px;
   padding: 0px;
 }
 h2 {
   font-family: "Noto Sans", sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   margin: 0px;
   padding: 0px;
 }
 h3 {
   font-family: "Noto Sans", sans-serif;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 900;
   margin: 0px;
   padding: 0px;
@@ -121,7 +121,7 @@ select {
   padding: 6px;
   box-sizing: border-box;
   outline: none;
-  margin-bottom: 16px;
+  margin-top: 14px;
 }
 
 .max-widht {

@@ -7,7 +7,12 @@ body {
 
 th {
   padding-bottom: 10px;
+  font-size: 25px;
 }
+tr {
+  font-size: 20px;
+}
+
 .hero-content-container {
   display: flex;
   flex-direction: column;
@@ -71,8 +76,8 @@ th {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 260px;
-  height: 140px;
+  width: 320px;
+  height: 186px;
   background-color: #ffffff;
   border-radius: 24px;
   border-style: solid;
@@ -181,8 +186,8 @@ td.right {
 }
 
 .image-trash {
-  width: 16px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
 }
 
 .navbar-date-container {
@@ -199,4 +204,13 @@ td.right {
   height: 48px;
   width: 156px;
   font-size: 16px;
+}
+
+.graphic-content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
 }
