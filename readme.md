@@ -1,6 +1,6 @@
 # Wallet-App
 
-<img src="https://github.com/mcsordi/Wallet-App/blob/master/src/image/image-readme.PNG" alt="preview Wallet App" width ="316" height="158">
+<img src="https://github.com/mcsordi/Wallet-App/blob/master/src/image/image-readme.PNG" alt="preview Wallet App" width ="1578" height="789">
 
 ## Introduction
 
