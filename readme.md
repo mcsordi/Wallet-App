@@ -21,7 +21,7 @@ https://mcsordi.github.io/Wallet-App/
 1. Clone the repo:
 
 ```
-https://github.com/AndreMiller97/wallet-app-frontend.git
+https://github.com/mcsordi/Wallet-App
 ```
 
 2. Navigate to the app folder:
